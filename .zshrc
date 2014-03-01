@@ -28,7 +28,7 @@ export MAIL
 # Definition des repertoires de travail et de correction
 MODULE=unix
 export MODULE
-PROJECT=ftsh3
+PROJECT=42sh
 export PROJECT
 WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
 export WP
@@ -45,17 +45,21 @@ export LIB
 source ~/.ls_colors
 
 # Definition du prompt
-if [[ $(cd $WP && git status | grep "modified" | cut -d ' ' -f 4) > /dev/null ]]
-then
-	COLOR="%{$fg[red]%}"
-else
-	COLOR="%{$fg[green]%}"
-fi
-NORMAL="%{$reset_color%}"
-PROMPT="%n@%m:%~
+precmd ()
+{
+	if [[ $(cd $WP && git status | grep "modified" | cut -d ' ' -f 4) > /dev/null ]]
+	then
+		COLOR="%{$fg[red]%}"
+	else
+		COLOR="%{$fg[green]%}"
+	fi
+	BRANCH=$(cd $WP && git branch | cut -d ' ' -f 2 | tr -d '\n')
+	NORMAL="%{$reset_color%}"
+	PROMPT="%n@%m:%~
 > "
-RPROMPT="%{$COLOR%}$MODULE:$PROJECT%{$NORMAL%}"
-
+	RPROMPT="%{$COLOR%}($BRANCH) $MODULE:$PROJECT%{$NORMAL%}"
+}
+precmd
 # Definition des alias raccourcis
 alias cdc="cd $WP"
 alias cdl="cd $LIB"

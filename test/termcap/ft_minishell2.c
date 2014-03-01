@@ -6,7 +6,7 @@
 /*   By: mdelage <mdelage@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/23 20:01:04 by mdelage           #+#    #+#             */
-/*   Updated: 2014/02/13 17:04:51 by mdelage          ###   ########.fr       */
+/*   Updated: 2014/02/13 19:16:17 by mdelage          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,9 +224,9 @@ void	ft_insert(t_data *data, char *str, u_int *whereis, u_int rd)
 		curs--;
 	}
 	str[curs] = (char)rd;
-	my_tputs(my_tgetstr("sc"));	
+	my_tputs(my_tgetstr("sc"));
 	write(1, str + curs, len - curs + 1);
-	my_tputs(my_tgetstr("rc"));	
+	my_tputs(my_tgetstr("rc"));
 	ft_moveright(data, whereis);
 	return ;
 }
