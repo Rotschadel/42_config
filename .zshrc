@@ -14,7 +14,7 @@ bindkey "\e[3~"   delete-char
 
 # Autocompletion de type menu
 autoload -U compinit && compinit
-zstyle ':completion:*' menu select
+zstyle ":completion:*" menu select
 
 # Couleur prompt
 autoload -U colors && colors
@@ -48,7 +48,7 @@ precmd ()
 	    COLOR="%{$fg[green]%}"
 	fi			
 	NORMAL="%{$reset_color%}"
-	BRANCH=$(git branch | cut -d ' ' -f 2 | tr -d '\n')
+	BRANCH=$(git branch | cut -d " " -f 2 | tr -d "\n")
 	RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
     else
 	RPROMPT=""
@@ -65,17 +65,21 @@ alias gps="git push"
 alias gm="git merge"
 
 # Definition des alias
+alias c="clear"
+alias cc="clang -Wall -Wextra -Werror"
 alias em="emacs"
 alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
-alias gccf='gcc -Wall -Wextra -Werror'
+alias gccf="gcc -Wall -Wextra -Werror"
 alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
 alias gcclf="gcc -Wall -Wextra -Werror -I ~/libft/includes -L ~/libft -lft"
-alias ls='ls -G'
-alias l='ls -l'
-alias la='ls -lA'
-alias modsh='emacs ~/.zshrc'
-alias rl='source ~/.zshrc'
+alias ls="ls -G"
+alias l="ls -l"
+alias la="ls -lA"
+alias modsh="emacs ~/.zshrc"
+alias p="prin"
+alias rl="source ~/.zshrc"
+alias v="vim"
 
 # Experimental
 TERM=xterm-256color
