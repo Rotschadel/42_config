@@ -6,7 +6,7 @@
 ;    By: mdelage <mdelage@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2014/01/21 18:15:15 by mdelage           #+#    #+#              ;
-;    Updated: 2014/02/14 17:05:16 by mdelage           ###   ########.fr        ;
+;    Updated: 2014/03/07 17:22:33 by mdelage          ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -19,6 +19,11 @@
 (load "string.el")
 (load "comments.el")
 (load "header.el")
+
+
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-standard)
 
 ; Set default emacs configuration
 (set-language-environment "UTF-8")

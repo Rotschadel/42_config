@@ -2,7 +2,9 @@
 HISTFILE=~/.zshrc_history
 SAVEHIST=5000
 HISTSIZE=5000
-PATH=$HOME/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+PATH=$HOME/scripts:$HOME/usr/local:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+
+export PATH=/nfs/zfs-student-3/users/2013/mdelage/usr/local/bin:$PATH
 
 setopt inc_append_history
 # setopt share_history
@@ -26,9 +28,9 @@ MAIL="$USER@student.42.fr"
 export MAIL
 
 # Definition des repertoires de travail et de correction
-MODULE=unix
+MODULE=algo
 export MODULE
-PROJECT=42sh
+PROJECT=alum1
 export PROJECT
 WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
 export WP
@@ -59,7 +61,7 @@ precmd ()
 > "
 	RPROMPT="%{$COLOR%}($BRANCH) $MODULE:$PROJECT%{$NORMAL%}"
 }
-precmd
+
 # Definition des alias raccourcis
 alias cdc="cd $WP"
 alias cdl="cd $LIB"
@@ -67,12 +69,22 @@ alias cds='cd ~/scripts/'
 alias cdt='cd ~/test/'
 alias cdx='cd $COR'
 
+# Definition des alias de git
+alias ga="git add"
+alias gb="git branch"
+alias gcm="git commit -m"
+alias gco="git checkout"
+alias gpl="git pull"
+alias gps="git push"
+alias gm="git merge"
+
 # Definition des alias
-alias auteur="echo 'mdelage' > auteur; git add auteur; git commit -m 'ajout de auteur'; git push origin master"
+alias auteur="echo 'mdelage' > auteur"
 alias em="emacs"
 alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias find_text='~/scripts/find_text'
+alias grand="open ~/GrandPerspective.app"
 alias gccf='gcc -Wall -Wextra -Werror'
 alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
 alias gcclf="gcc -Wall -Wextra -Werror -I ~/libft/includes -L ~/libft -lft"
@@ -90,3 +102,4 @@ alias rl='source ~/.zshrc'
 alias sd='emacs'
 
 # Experimental
+TERM=xterm-256color
