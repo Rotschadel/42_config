@@ -1,11 +1,11 @@
-# Definition des reglages de zsh
+# Definition du PATH
+PATH=$HOME/scripts:$HOME/usr/local/bin:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+export PATH
+
+# Configuration de l'historique
 HISTFILE=~/.zshrc_history
 SAVEHIST=5000
 HISTSIZE=5000
-PATH=$HOME/scripts:$HOME/usr/local:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
-
-export PATH=/nfs/zfs-student-3/users/2013/mdelage/usr/local/bin:$PATH
-
 setopt inc_append_history
 # setopt share_history
 
@@ -47,6 +47,8 @@ export LIB
 source ~/.ls_colors
 
 # Definition du prompt
+PROMPT="%n@%m:%~
+> "
 precmd ()
 {
 	if [[ $(cd $WP && git status | grep "modified" | cut -d ' ' -f 4) > /dev/null ]]
@@ -57,8 +59,6 @@ precmd ()
 	fi
 	BRANCH=$(cd $WP && git branch | cut -d ' ' -f 2 | tr -d '\n')
 	NORMAL="%{$reset_color%}"
-	PROMPT="%n@%m:%~
-> "
 	RPROMPT="%{$COLOR%}($BRANCH) $MODULE:$PROJECT%{$NORMAL%}"
 }
 

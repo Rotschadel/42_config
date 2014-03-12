@@ -6,7 +6,7 @@
 ;    By: mdelage <mdelage@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2014/01/21 18:15:15 by mdelage           #+#    #+#              ;
-;    Updated: 2014/03/07 17:22:33 by mdelage          ###   ########.fr        ;
+;    Updated: 2014/03/12 13:48:10 by mdelage          ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -51,7 +51,19 @@
 ;*******************************************************************************;
 ; Reglage de l'affichage du man
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(Man-frame-parameters (quote pushy))
- '(pc-selection-mode t))
+ '(Man-notify-method (quote pushy))
+ '(gud-gdb-command-name "gdb --annotate=1")
+ '(large-file-warning-threshold nil)
+ '(pc-selection-mode t)
+ '(vc-follow-symlinks t))
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
