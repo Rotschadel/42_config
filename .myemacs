@@ -9,8 +9,6 @@
 ;    Updated: 2014/02/05 13:16:55 by mdelage          ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
-(load "~/.emacs.d/fill-column-indicator.el")
-(global-set-key (kbd "C-c c") 'whitespace-toggle-options)
 
 ; Masque la page de demarrage
 (setq inhibit-startup-message t)
@@ -24,14 +22,6 @@
 ; Affiches les espaces en trop en rouge
 (setq whitespace-style '(face trailing))
 (setq-default show-trailing-whitespace t)
-; Affiche un trait pour les 80 colonnes
-(require 'fill-column-indicator)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-;(setq fci-rule-width 1)
-(setq-default fci-style 'rule)
-(setq-default fci-rule-column 80)
-(setq fci-rule-color "red")
-(add-hook 'after-change-major-mode-hook 'fci-mode)
 ; Ouvre le man dans le buffer courant
 (custom-set-variables
  '(Man-notify-method (quote pushy)))
