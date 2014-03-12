@@ -31,7 +31,7 @@ MAIL="$USER@student.42.fr"
 export MAIL
 
 # Definition du prompt
-
+## mdelage
 PROMPT="%n@%m:%~
 > "
 
@@ -54,6 +54,10 @@ precmd ()
 	RPROMPT=""
     fi
 }
+
+## dlancar
+#PROMPT="[%~] %m%% "
+#RPROMPT="[%T]"
 
 # Definition des alias de git
 alias ga="git add"
