@@ -6,25 +6,31 @@
 ;    By: mdelage <marvin@42.fr>                     +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2013/11/19 11:24:40 by mdelage           #+#    #+#              ;
-;    Updated: 2014/02/05 13:16:55 by mdelage          ###   ########.fr        ;
+;    Updated: 2014/03/12 12:56:36 by mdelage          ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 ; Masque la page de demarrage
 (setq inhibit-startup-message t)
+
 ; Affiche une regle avec le numero de ligne
 (global-linum-mode 1)
+
 ; Affiche les parentheses liees
 (require 'paren)
 (show-paren-mode)
+
 ; Selection avec shift
 (custom-set-variables '(pc-selection-mode t nil (pc-select)))
+
 ; Affiches les espaces en trop en rouge
 (setq whitespace-style '(face trailing))
 (setq-default show-trailing-whitespace t)
+
 ; Ouvre le man dans le buffer courant
 (custom-set-variables
  '(Man-notify-method (quote pushy)))
+
 ; Activer deplacement souris
 (require 'mouse)
 (xterm-mouse-mode t)
@@ -36,6 +42,7 @@
 (global-set-key [mouse-5] '(lambda ()
                             (interactive)
                             (scroll-up 1)))
+
 ; Modifie comportement C-k
 (defun kill-and-join-forward (&optional arg)
   (interactive "P")
@@ -46,10 +53,12 @@
              (kill-line arg))
     (kill-line arg)))
 (global-set-key "\C-k" 'kill-and-join-forward)
+
 ; Active la copie depuis OSX vers emacs
 (defun copy-from-osx ()
   (shell-command-to-string "pbpaste"))
 (setq interprogram-paste-function 'copy-from-osx)
+
 ; Active la copeis de emacs vers OSX
 (defun paste-to-osx (text &optional push)
   (let ((process-connection-type nil))
@@ -57,6 +66,7 @@
       (process-send-string proc text)
       (process-send-eof proc))))
 (setq interprogram-cut-function 'paste-to-osx)
+
 ;******************************************************************************;
 ; Experimental
 ;******************************************************************************;
