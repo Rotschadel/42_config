@@ -1,7 +1,6 @@
 # Definition du path
-PATH=$HOME/usr/local:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
-
-export PATH=/nfs/zfs-student-3/users/2013/mdelage/usr/local/bin:$PATH
+PATH=$HOME/usr/local/bin:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+export PATH
 
 # Gestion de l'historique
 HISTFILE=~/.zshrc_history
@@ -38,22 +37,22 @@ PROMPT="%n@%m:%~
 
 precmd ()
 {
-	ISGIT=$(git status 2> /dev/null)
-	if [ -n "$ISGIT" ]
+    ISGIT=$(git status 2> /dev/null)
+    if [ -n "$ISGIT" ]
+    then
+	STATUS=$(echo "$ISGIT" | grep "modified")
+	if [ -n "$STATUS" ]
 	then
-		STATUS=$(echo "$ISGIT" | grep "modified" | cut -d ' ' -f 2)
-		if [ -n "$STATUS" ]
-		then
-			COLOR="%{$fg[red]%}"
-		else
-			COLOR="%{$fg[green]%}"
-		fi			
-		NORMAL="%{$reset_color%}"
-		BRANCH=$(git branch | cut -d ' ' -f 2 | tr -d '\n')
-		RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
+	    COLOR="%{$fg[red]%}"
 	else
-		RPROMPT=""
-	fi
+	    COLOR="%{$fg[green]%}"
+	fi			
+	NORMAL="%{$reset_color%}"
+	BRANCH=$(git branch | cut -d ' ' -f 2 | tr -d '\n')
+	RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
+    else
+	RPROMPT=""
+    fi
 }
 
 # Definition des alias de git
