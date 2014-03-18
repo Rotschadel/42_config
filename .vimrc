@@ -1,4 +1,6 @@
 " .vimrc
+" ruler with line number
+set number
 
 set nocompatible                 " Vim is better than Vi
 set encoding=utf-8               " utf8 or gtfo

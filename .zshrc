@@ -28,9 +28,9 @@ MAIL="$USER@student.42.fr"
 export MAIL
 
 # Definition des repertoires de travail et de correction
-MODULE=algo
+MODULE=unix
 export MODULE
-PROJECT=alum1
+PROJECT=42sh
 export PROJECT
 WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
 export WP
@@ -43,6 +43,7 @@ export COR
 LIB=/nfs/zfs-student-3/users/2013/mdelage/libft/
 export LIB
 
+cd $WP
 # Definition des couleurs
 source ~/.ls_colors
 
@@ -92,7 +93,7 @@ alias l='ls -l'
 alias la='ls -lA'
 alias libft='cp -r ~/libft libft; rm -rf libft/.git'
 alias ls='ls -G'
-alias modsh='emacs ~/.zshrc'
+alias modsh='emacs ~/dotfiles/.zshrc'
 alias norme='~/scripts/norme'
 alias norme2='~/scripts/sn.sh'
 alias norme3='python ~/scripts/norme.py'
