@@ -43,7 +43,6 @@ export COR
 LIB=/nfs/zfs-student-3/users/2013/mdelage/libft/
 export LIB
 
-cd $WP
 # Definition des couleurs
 source ~/.ls_colors
 
@@ -52,15 +51,29 @@ PROMPT="%n@%m:%~
 > "
 precmd ()
 {
+	NORMAL="%{$reset_color%}"
+	ISGIT=$(git status 2> /dev/null)
+	if [ -n "$ISGIT" ]
+	then
+		STATUS=$(echo "$ISGIT" | grep "modified" | cut -d ' ' -f 4)
+		BRANCH=$(git branch | cut -d ' ' -f 2 | tr -d '\n')
+		if [ -n "$STATUS" ]
+		then
+			COLOR="%{$fg[red]%}"
+		else
+			COLOR="%{$fg[green]%}"
+		fi
+		RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%} "
+	else
+		RPROMPT=""
+	fi
 	if [[ $(cd $WP && git status | grep "modified" | cut -d ' ' -f 4) > /dev/null ]]
 	then
-		COLOR="%{$fg[red]%}"
+		COLOR2="%{$fg[red]%}"
 	else
-		COLOR="%{$fg[green]%}"
+		COLOR2="%{$fg[green]%}"
 	fi
-	BRANCH=$(cd $WP && git branch | cut -d ' ' -f 2 | tr -d '\n')
-	NORMAL="%{$reset_color%}"
-	RPROMPT="%{$COLOR%}($BRANCH) $MODULE:$PROJECT%{$NORMAL%}"
+	RPROMPT="$RPROMPT%{$COLOR2%}$MODULE:$PROJECT%{$NORMAL%}"
 }
 
 # Definition des alias raccourcis
