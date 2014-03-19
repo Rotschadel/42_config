@@ -46,12 +46,18 @@ precmd ()
 	then
 	    COLOR="%{$fg[red]%}"
 	else
-	    REMOTE=$(git diff origin/$BRANCH $BRANCH)
-	    if [ -n "$REMOTE" ]
+	    REMOTE_EXIST=$(git branch -a | grep "remotes/origin/$BRANCH")
+	    if [ -n "$REMOTE_EXIST" ]
 	    then
-		COLOR="%{$fg[yellow]%}"
+		REMOTE=$(git diff origin/$BRANCH $BRANCH)
+		if [ -n "$REMOTE" ]
+		then
+		    COLOR="%{$fg[yellow]%}"
+		else
+		    COLOR="%{$fg[green]%}"
+		fi
 	    else
-		COLOR="%{$fg[green]%}"
+		COLOR="%{$fg[yellow]%}"
 	    fi
 	fi			
 	NORMAL="%{$reset_color%}"
