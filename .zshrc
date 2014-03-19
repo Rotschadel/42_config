@@ -72,7 +72,7 @@ precmd ()
 					COLOR="%{$fg[green]%}"
 				fi
 			else
-				COLOR="%{$fg[yellow]%}"
+				COLOR="%{$fg[green]%}"
 			fi
 		fi
 		RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%} "
@@ -95,7 +95,7 @@ precmd ()
 				COLOR2="%{$fg[green]%}"
 			fi
 		else
-			COLOR2="%{$fg[yellow]%}"
+			COLOR2="%{$fg[green]%}"
 		fi
 	fi
 	RPROMPT="$RPROMPT%{$COLOR2%}$MODULE:$PROJECT%{$NORMAL%}"
