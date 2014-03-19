@@ -38,9 +38,9 @@ PROMPT="%n@%m:%~
 precmd ()
 {
     ISGIT=$(git status 2> /dev/null)
-    BRANCH=$(git branch | cut -d " " -f 2 | tr -d "\n")
     if [ -n "$ISGIT" ]
     then
+	BRANCH=$(git branch | cut -d " " -f 2 | tr -d "\n")
 	STATUS=$(echo "$ISGIT" | grep "modified")
 	if [ -n "$STATUS" ]
 	then
