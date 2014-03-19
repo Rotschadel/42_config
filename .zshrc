@@ -91,6 +91,7 @@ alias gco="git checkout"
 alias gpl="git pull"
 alias gps="git push"
 alias gm="git merge"
+alias gu="git add -u"
 
 # Definition des alias
 alias auteur="echo 'mdelage' > auteur"
