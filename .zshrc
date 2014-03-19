@@ -61,12 +61,18 @@ precmd ()
 		then
 			COLOR="%{$fg[red]%}"
 		else
-			REMOTE=$(git diff origin/$BRANCH $BRANCH)
-			if [ -n "$REMOTE" ]
+			REMOTE_EXIST=$(git branch -a | grep remotes/origin/$BRANCH)
+			if [ -n "$REMOTE_EXIST" ]
 			then
-				COLOR="%{$fg[yellow]%}"
+				REMOTE=$(git diff origin/$BRANCH $BRANCH)
+				if [ -n "$REMOTE" ]
+				then
+					COLOR="%{$fg[yellow]%}"
+				else
+					COLOR="%{$fg[green]%}"
+				fi
 			else
-				COLOR="%{$fg[green]%}"
+				COLOR="%{$fg[yellow]%}"
 			fi
 		fi
 		RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%} "
@@ -78,12 +84,18 @@ precmd ()
 		COLOR2="%{$fg[red]%}"
 	else
 		BRANCH2=$(cd $WP && git branch | cut -d ' ' -f 2 | tr -d '\n')
-		REMOTE=$(cd $WP && git diff origin/$BRANCH2 $BRANCH2)
-		if [ -n "$REMOTE" ]
+		REMOTE2_EXIST=$(cd $WP && git branch -a | grep remotes/origin/$BRANCH2)
+		if [ -n "$REMOTE2_EXIST" ]
 		then
-			COLOR2="%{$fg[yellow]%}"
+			REMOTE=$(cd $WP && git diff origin/$BRANCH2 $BRANCH2)
+			if [ -n "$REMOTE" ]
+			then
+				COLOR2="%{$fg[yellow]%}"
+			else
+				COLOR2="%{$fg[green]%}"
+			fi
 		else
-			COLOR2="%{$fg[green]%}"
+			COLOR2="%{$fg[yellow]%}"
 		fi
 	fi
 	RPROMPT="$RPROMPT%{$COLOR2%}$MODULE:$PROJECT%{$NORMAL%}"
