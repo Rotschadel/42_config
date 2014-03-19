@@ -73,11 +73,12 @@ precmd ()
 	else
 		RPROMPT=""
 	fi
-	if [[ $(cd $WP && git status | grep "modified" | cut -d ' ' -f 4) > /dev/null ]]
+	if [[ $(cd $WP && git status | grep "modified" | cut -d ' ' -f 4) 2> /dev/null ]]
 	then
 		COLOR2="%{$fg[red]%}"
 	else
-		REMOTE=$(cd $WP && git diff origin/$BRANCH $BRANCH)
+		BRANCH2=$(cd $WP && git branch | cut -d ' ' -f 2 | tr -d '\n')
+		REMOTE=$(cd $WP && git diff origin/$BRANCH2 $BRANCH2)
 		if [ -n "$REMOTE" ]
 		then
 			COLOR2="%{$fg[yellow]%}"
