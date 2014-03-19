@@ -38,6 +38,7 @@ PROMPT="%n@%m:%~
 precmd ()
 {
     ISGIT=$(git status 2> /dev/null)
+    BRANCH=$(git branch | cut -d " " -f 2 | tr -d "\n")
     if [ -n "$ISGIT" ]
     then
 	STATUS=$(echo "$ISGIT" | grep "modified")
@@ -45,10 +46,15 @@ precmd ()
 	then
 	    COLOR="%{$fg[red]%}"
 	else
-	    COLOR="%{$fg[green]%}"
+	    REMOTE=$(git diff origin/$BRANCH $BRANCH)
+	    if [ -n "$REMOTE" ]
+	    then
+		COLOR="%{$fg[yellow]%}"
+	    else
+		COLOR="%{$fg[green]%}"
+	    fi
 	fi			
 	NORMAL="%{$reset_color%}"
-	BRANCH=$(git branch | cut -d " " -f 2 | tr -d "\n")
 	RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
     else
 	RPROMPT=""
