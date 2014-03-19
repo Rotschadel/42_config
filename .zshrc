@@ -65,6 +65,9 @@ precmd ()
 #PROMPT="[%~] %m%% "
 #RPROMPT="[%T]"
 
+# Definition du repertoire contenant la libft
+PATH_LIBFT="~/libft"
+
 # Definition des alias de git
 alias ga="git add"
 alias gb="git branch"
@@ -81,13 +84,13 @@ alias em="emacs"
 alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias gccf="gcc -Wall -Wextra -Werror"
-alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
-alias gcclf="gcc -Wall -Wextra -Werror -I ~/libft/includes -L ~/libft -lft"
+alias gccl="gcc -I $PATH_LIBFT/includes -L $PATH_LIBFT -lft"
+alias gcclf="gcc -Wall -Wextra -Werror -I $PATH_LIBFT/includes -L $PATH_LIBFT -lft"
 alias ls="ls -G"
 alias l="ls -l"
 alias la="ls -lA"
 alias modsh="emacs ~/.zshrc"
-alias p="prin"
+alias p="print"
 alias rl="source ~/.zshrc"
 alias v="vim"
 
