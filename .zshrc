@@ -77,7 +77,7 @@ precmd ()
 	then
 		COLOR2="%{$fg[red]%}"
 	else
-		REMOTE=$(git diff origin/$BRANCH $BRANCH)
+		REMOTE=$(cd $WP && git diff origin/$BRANCH $BRANCH)
 		if [ -n "$REMOTE" ]
 		then
 			COLOR2="%{$fg[yellow]%}"
