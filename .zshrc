@@ -61,7 +61,13 @@ precmd ()
 		then
 			COLOR="%{$fg[red]%}"
 		else
-			COLOR="%{$fg[green]%}"
+			REMOTE=$(git diff origin/$BRANCH $BRANCH)
+			if [ -n "$REMOTE" ]
+			then
+				COLOR="%{$fg[green]%}"
+			else
+				COLOR="%{$fg[orange]%}"
+			fi
 		fi
 		RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%} "
 	else
