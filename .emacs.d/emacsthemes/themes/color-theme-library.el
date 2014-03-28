@@ -404,7 +404,7 @@ Doesn't mess with most faces, but does turn on dark background mode."
      (underline ((t (:underline t))))
      (region ((t (:background "grey")))))))
 
-(defun color-theme-jonadabian ()
+(defun color-theme-jonadabian()
   "Dark blue background.
 Supports standard faces, font-lock, highlight-changes, widget and
 custom."
@@ -638,7 +638,7 @@ If you are missing standard faces in this theme, please notify the maintainer."
      (modeline-buffer-id ((t (:foreground "white" :background "black"))))
      (modeline-mousable ((t (:foreground "white" :background "black"))))
      (modeline-mousable-minor-mode ((t (:foreground "white" :background "black"))))
-     (region ((t (:background "gray"))))
+     (region ((t (:background "dark cyan"))))
      (secondary-selection ((t (:background "paleturquoise"))))
      (show-paren-match-face ((t (:background "turquoise"))))
      (show-paren-mismatch-face ((t (:foreground "white" :background "purple"))))
@@ -6625,8 +6625,7 @@ Based on `color-theme-subtle-blue' with a slightly darker background."
        (zmacs-region ((t (:background "SlateGray"))))))))
 
 (defun color-theme-jonadabian-slate ()
-  "Another slate-and-wheat color theme by Jonadab the Unsightly One.
-Updated 2001-10-12."
+  "Another slate-and-wheat color theme by Jonadab the Unsightly One."
   (interactive)
   (color-theme-install
    '(color-theme-jonadabian-slate

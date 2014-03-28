@@ -1,6 +1,10 @@
 # Definition du PATH
-PATH=$HOME/scripts:$HOME/usr/local/bin:$HOME/usr/bin:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+PATH=$HOME/scripts:$HOME/usr/bin:$HOME/usr/local/bin:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
 export PATH
+
+# Import de config perso
+fpath="/nfs/zfs-student-3/users/2013/mdelage/dotfiles/.zsh /usr/share/zsh/site-functions /usr/share/zsh/5.0.2/functions"
+FPATH=`echo $fpath | tr ' ' ':'`
 
 # Configuration de l'historique
 HISTFILE=~/.zshrc_history
@@ -8,6 +12,9 @@ SAVEHIST=5000
 HISTSIZE=5000
 setopt inc_append_history
 # setopt share_history
+
+# Reglage du terminal
+TERM=xterm-256color
 
 # Correction de la touche Delete
 bindkey "\e[3~"   delete-char
@@ -133,10 +140,6 @@ alias la='ls -lA'
 alias libft='cp -r ~/libft libft; rm -rf libft/.git'
 alias ls='ls -G'
 alias modsh='emacs ~/dotfiles/.zshrc'
-alias norme='~/scripts/norme'
-alias norme2='~/scripts/sn.sh'
-alias norme3='python ~/scripts/norme.py'
-alias norme4='python ~/scripts/norme.py'
 alias proto='~/scripts/proto'
 alias rl='source ~/.zshrc'
 alias sd='emacs'
@@ -155,5 +158,10 @@ man()
 	man "$@"
 }
 
-# Experimental
-TERM=xterm-256color
+# Norminette inteligente
+norme()
+{
+	dot_c=`find . -iname "*.c"`
+	dot_h=`find . -iname "*.h"`
+	norminette $dot_c $dot_h
+}
