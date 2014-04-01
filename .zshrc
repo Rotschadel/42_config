@@ -35,9 +35,9 @@ MAIL="$USER@student.42.fr"
 export MAIL
 
 # Definition des repertoires de travail et de correction
-MODULE=unix
+MODULE=web
 export MODULE
-PROJECT=42sh
+PROJECT=j01
 export PROJECT
 WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
 export WP
@@ -140,10 +140,11 @@ alias la='ls -lA'
 alias libft='cp -r ~/libft libft; rm -rf libft/.git'
 alias ls='ls -G'
 alias modsh='emacs ~/dotfiles/.zshrc'
+alias next='source ~/scripts/next'
 alias proto='~/scripts/proto'
 alias rl='source ~/.zshrc'
 alias sd='emacs'
-
+alias GG="cowsay \"Bien Joue les gars ! Bon courage et bonne continuation.\" "
 # Couleurs pour le man
 man()
 {
@@ -164,4 +165,21 @@ norme()
 	dot_c=`find . -iname "*.c"`
 	dot_h=`find . -iname "*.h"`
 	norminette $dot_c $dot_h
+}
+
+html()
+{
+	echo "<HTML>" > $1
+	echo "\t<HEAD>" >> $1
+	echo "\t</HEAD>" >> $1
+	echo "\t<BODY>" >> $1
+	echo "\t</BODY>" >> $1
+	echo "</HTML>" >> $1
+}
+
+sp()
+{
+	echo "<?php" >> $1
+	echo "" >> $1
+	echo "?>" >> $1
 }

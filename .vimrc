@@ -111,15 +111,15 @@ if has("autocmd")
     \ endif
 
   " http://tedlogan.com/techblog3.html
-  autocmd FileType sh setlocal ts=4 sts=4 sw=4 et ai " sh
+  autocmd FileType sh setlocal ts=4 sts=4 sw=4 noet ai " sh
   autocmd FileType c setlocal ts=4 sts=4 sw=4 noet ai " c
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noet ai " Makefile
-  autocmd FileType vim setlocal ts=2 sts=2 sw=2 et ai " Vim
-  autocmd FileType text setlocal ts=2 sts=2 sw=2 et ai " Text
-  autocmd FileType markdown setlocal ts=4 sts=4 sw=4 et ai " Markdown
-  autocmd FileType html setlocal ts=4 sts=4 sw=4 et ai " (x)HTML
-  autocmd FileType php,java setlocal ts=4 sts=4 sw=4 et ai " PHP & Java
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 et ai nocindent " JavaScript
+  autocmd FileType vim setlocal ts=2 sts=2 sw=2 noet ai " Vim
+  autocmd FileType text setlocal ts=2 sts=2 sw=2 noet ai " Text
+  autocmd FileType markdown setlocal ts=4 sts=4 sw=4 noet ai " Markdown
+  autocmd FileType html setlocal ts=4 sts=4 sw=4 noet ai " (x)HTML
+  autocmd FileType php,java setlocal ts=4 sts=4 sw=4 noet ai " PHP & Java
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noet ai nocindent " JavaScript
   autocmd BufNewFile,BufRead *.h set ft=c
   autocmd BufNewFile,BufRead *.json set ft=javascript
   autocmd BufNewFile,BufRead *.webapp set ft=javascript
@@ -140,13 +140,13 @@ map Q gq
 inoremap <C-U> <C-G>u<C-U>
 
 " inactivate arrows, home and end keys in insert mode
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-inoremap <home> <nop>
-inoremap <End> <nop>
-inoremap <Up> <nop>
+"inoremap <Up> <nop>
+"inoremap <Down> <nop>
+"inoremap <Left> <nop>
+"inoremap <Right> <nop>
+"inoremap <home> <nop>
+"inoremap <End> <nop>
+"inoremap <Up> <nop>
 
 set backspace=indent,eol,start   " allow backspacing over everything in insert mode
 set formatoptions=cqrt           " comments newline when already in a comment
