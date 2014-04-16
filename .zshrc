@@ -2,10 +2,6 @@
 PATH=$HOME/scripts:$HOME/usr/bin:$HOME/usr/local/bin:$HOME/.brew/bin:$HOME/mamp/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
 export PATH
 
-# Import de config perso
-fpath="/nfs/zfs-student-3/users/2013/mdelage/dotfiles/.zsh /usr/share/zsh/site-functions /usr/share/zsh/5.0.2/functions"
-FPATH=`echo $fpath | tr ' ' ':'`
-
 # Configuration de l'historique
 HISTFILE=~/.zshrc_history
 SAVEHIST=5000
@@ -33,18 +29,6 @@ GROUP=`/usr/bin/id -gn $user`
 export GROUP
 MAIL="$USER@student.42.fr"
 export MAIL
-
-# Definition des repertoires de travail et de correction
-MODULE=web
-export MODULE
-PROJECT=rush1
-export PROJECT
-WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
-export WP
-COR=/nfs/zfs-student-3/users/2013/mdelage/Rendu/correction/
-export COR
-LIB=/nfs/zfs-student-3/users/2013/mdelage/libft/
-export LIB
 
 # Definition des couleurs
 source ~/.ls_colors
@@ -89,27 +73,7 @@ precmd ()
     else
         RPROMPT=""
     fi
-    TEMP=$(cd $WP && git status | grep "modified:\|renamed:\|new file:\|deleted:" 2> /dev/null);
-    if [ -n "$TEMP" ]
-    then
-        COLOR2="%{$fg[red]%}"
-    else
-        BRANCH2=$(cd $WP && git branch | cut -d ' ' -f 2 | tr -d '\n')
-        REMOTE2_EXIST=$(cd $WP && git branch -a | grep remotes/origin/$BRANCH2)
-        if [ -n "$REMOTE2_EXIST" ]
-        then
-            REMOTE=$(cd $WP && git diff origin/$BRANCH2 $BRANCH2)
-            if [ -n "$REMOTE" ]
-            then
-                COLOR2="%{$fg[yellow]%}"
-            else
-                COLOR2="%{$fg[green]%}"
-            fi
-        else
-            COLOR2="%{$fg[green]%}"
-        fi
-    fi
-    RPROMPT="$RPROMPT%{$COLOR2%}$MODULE:$PROJECT%{$NORMAL%}"
+   RPROMPT="$RPROMPT"
 }
 
 MAMP=$HOME/mamp/apps
@@ -145,7 +109,7 @@ alias gcclf="gcc -Wall -Wextra -Werror -I ~/libft/includes -L ~/libft -lft"
 alias l='ls -l'
 alias la='ls -lA'
 alias libft='cp -r ~/libft libft; rm -rf libft/.git'
-alias ls='ls -G'
+alias ls='ls --color'
 alias modsh='vim ~/dotfiles/.zshrc'
 alias next='source ~/scripts/nextprev next'
 alias prev='source ~/scripts/nextprev prev'
