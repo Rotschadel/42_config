@@ -34,15 +34,7 @@ export GROUP
 MAIL="$USER@student.42.fr"
 export MAIL
 
-# Definition des repertoires de travail et de correction
-MODULE=web
-export MODULE
-PROJECT=rush1
-export PROJECT
-WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
-export WP
-COR=/nfs/zfs-student-3/users/2013/mdelage/Rendu/correction/
-export COR
+# Libft
 LIB=/nfs/zfs-student-3/users/2013/mdelage/libft/
 export LIB
 
@@ -89,27 +81,7 @@ precmd ()
     else
         RPROMPT=""
     fi
-    TEMP=$(cd $WP && git status | grep "modified:\|renamed:\|new file:\|deleted:" 2> /dev/null);
-    if [ -n "$TEMP" ]
-    then
-        COLOR2="%{$fg[red]%}"
-    else
-        BRANCH2=$(cd $WP && git branch | cut -d ' ' -f 2 | tr -d '\n')
-        REMOTE2_EXIST=$(cd $WP && git branch -a | grep remotes/origin/$BRANCH2)
-        if [ -n "$REMOTE2_EXIST" ]
-        then
-            REMOTE=$(cd $WP && git diff origin/$BRANCH2 $BRANCH2)
-            if [ -n "$REMOTE" ]
-            then
-                COLOR2="%{$fg[yellow]%}"
-            else
-                COLOR2="%{$fg[green]%}"
-            fi
-        else
-            COLOR2="%{$fg[green]%}"
-        fi
-    fi
-    RPROMPT="$RPROMPT%{$COLOR2%}$MODULE:$PROJECT%{$NORMAL%}"
+   RPROMPT="$RPROMPT%{$COLOR2%}%{$NORMAL%}"
 }
 
 MAMP=$HOME/mamp/apps
@@ -152,7 +124,7 @@ alias prev='source ~/scripts/nextprev prev'
 alias proto='~/scripts/proto'
 alias rl='source ~/.zshrc'
 alias sd='emacs'
-alias GG="cowsay \"Bien Joue les gars ! Bon courage et bonne continuation.\" "
+
 # Couleurs pour le man
 man()
 {
