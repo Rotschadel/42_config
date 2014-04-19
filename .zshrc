@@ -3,7 +3,7 @@ PATH=$HOME/scripts:$HOME/usr/bin:$HOME/usr/local/bin:$HOME/.brew/bin:$HOME/mamp/
 export PATH
 
 # Import de config perso
-fpath="/nfs/zfs-student-3/users/2013/mdelage/dotfiles/.zsh /usr/share/zsh/site-functions /usr/share/zsh/5.0.2/functions"
+fpath="$HOME/dotfiles/.zsh /usr/share/zsh/site-functions /usr/share/zsh/5.0.2/functions"
 FPATH=`echo $fpath | tr ' ' ':'`
 
 # Configuration de l'historique
