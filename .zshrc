@@ -34,10 +34,6 @@ export GROUP
 MAIL="$USER@student.42.fr"
 export MAIL
 
-# Libft
-LIB=/nfs/zfs-student-3/users/2013/mdelage/libft/
-export LIB
-
 # Definition des couleurs
 source ~/.ls_colors
 
@@ -84,7 +80,8 @@ precmd ()
    RPROMPT="$RPROMPT%{$COLOR2%}%{$NORMAL%}"
 }
 
-MAMP=$HOME/mamp/apps
+# Libft
+LIB=
 
 # Definition des alias raccourcis
 alias cdc='cd $WP'
@@ -112,8 +109,8 @@ alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killal
 alias find_text='~/scripts/find_text'
 alias grand="open ~/GrandPerspective.app"
 alias gccf='gcc -Wall -Wextra -Werror'
-alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
-alias gcclf="gcc -Wall -Wextra -Werror -I ~/libft/includes -L ~/libft -lft"
+alias gccl="gcc -I $LIB/includes -L $LIB -lft"
+alias gcclf="gcc -Wall -Wextra -Werror -I $LIB/includes -L $LIB -lft"
 alias l='ls -l'
 alias la='ls -lA'
 alias libft='cp -r ~/libft libft; rm -rf libft/.git'
