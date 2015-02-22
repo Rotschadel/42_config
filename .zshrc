@@ -3,8 +3,8 @@ PATH=$HOME/scripts:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:
 export PATH
 
 # Import de config perso
-fpath="/nfs/zfs-student-3/users/2013/mdelage/dotfiles/.zsh /usr/share/zsh/site-functions /usr/share/zsh/5.0.2/functions"
-FPATH=`echo $fpath | tr ' ' ':'`
+#fpath="$HOME/dotfiles/.zsh /usr/share/zsh/site-functions /usr/share/zsh/5.0.2/functions"
+#FPATH=`echo $fpath | tr ' ' ':'`
 
 # Configuration de l'historique
 HISTFILE=~/.zshrc_history
@@ -48,7 +48,7 @@ zstyle ':completion:*' menu select
 autoload -U colors && colors
 
 # fucking mac and their /Volume/<hdd_name>
-cd `echo "$PWD" | sed "s:/Volumes/Data::"`
+cd `pwd | sed "s:/Volumes/Data::"`
 
 # Definition des variables
 USER=`/usr/bin/whoami`
