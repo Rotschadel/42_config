@@ -1,0 +1,46 @@
+#!/bin/bash
+# Definition des alias raccourcis
+alias cdc='cd ~/Rendu/perso'
+alias cdl='cd $LIB'
+alias cdm='cd $MAMP'
+alias cds='cd ~/scripts/'
+alias cdt='cd ~/test/'
+alias cdx='cd ~/Rendu/correction'
+alias goinfre='cd /nfs/sgoinfre/goinfre/'
+alias a="~/Rendu/perso/cpp/piscine/rush01-git"
+
+# Definition des alias de git
+alias ga="git add"
+alias gb="git branch"
+alias gcm="git commit -m"
+alias gco="git checkout"
+alias gpl="git pull"
+alias gps="git push"
+alias gm="git merge"
+alias gu="git add -u"
+alias gusm="git submodule foreach git pull"
+
+# Definition des alias de ls
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -lA"
+alias lah="ls -lAh"
+alias lh="ls -lh"
+alias ls="ls -G"
+
+# Definition des alias de compilation
+alias gccf="gcc -Wall -Wextra -Werror"
+alias gccl="gcc -I $LIB/includes -L $LIB -lft"
+alias gcclf="gcc -Wall -Wextra -Werror -I $LIB/includes -L $LIB -lft"
+alias g++f="g++ -Wall -Wextra -Werror"
+
+# Definition des alias
+alias auteur="echo 'mdelage' > auteur"
+alias clean="find . -name '*~' -execdir rm {} \;"
+alias grand="open ~/GrandPerspective.app"
+alias libft="cp -r $LIB .; rm -rf libft/.git"
+alias modsh="vim ~/dotfiles/.zshrc"
+alias next="source nextprev next"
+alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
+alias prev="source nextprev prev"
+alias rl="source ~/.zshrc"

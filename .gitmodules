@@ -1,0 +1,36 @@
+[submodule ".vim/bundle/syntax"]
+	path = .vim/bundle/syntax
+	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
+[submodule ".vim/bundle/ccimpl"]
+	path = .vim/bundle/ccimpl
+	url = https://github.com/vim-scripts/ccimpl.vim.git
+[submodule ".vim/bundle/theme-kalahari"]
+	path = .vim/bundle/theme-kalahari
+	url = https://github.com/fabi1cazenave/kalahari.vim.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/vim-scripts/Syntastic.git
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/python_match"]
+	path = .vim/bundle/python_match
+	url = https://github.com/yegle/python_match.git
+[submodule ".vim/bundle/repeat"]
+	path = .vim/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule ".vim/bundle/snipmate"]
+	path = .vim/bundle/snipmate
+	url = https://github.com/vim-scripts/snipMate.git
+[submodule ".vim/bundle/surround"]
+	path = .vim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/OmniCppComplete"]
+	path = .vim/bundle/OmniCppComplete
+	url = https://github.com/vim-scripts/OmniCppComplete.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule ".vim/bundle/nerdtreetabs"]
+	path = .vim/bundle/nerdtreetabs
+	url = https://github.com/jistr/vim-nerdtree-tabs.git
