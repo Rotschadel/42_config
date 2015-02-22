@@ -90,7 +90,7 @@ precmd ()
             REMOTE_EXIST=$(git branch -a | grep remotes/origin/$BRANCH)
             if [ -n "$REMOTE_EXIST" ]
             then
-                REMOTE=$(git diff origin/$BRANCH | grep -v "Subproject\|diff\|@@ -1 +1 @@\|./vim/bundle")
+                REMOTE=$(git diff origin/$BRANCH | grep -v "@@ -1 +1 @@\|.vim/bundle\|Subproject")
                 if [ -n "$REMOTE" ]
                 then
                     COLOR="%{$fg[yellow]%}"
