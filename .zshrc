@@ -125,38 +125,3 @@ man()
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
-
-# Norminette inteligente
-norme()
-{
-    norminette **/*.c **/*.h
-}
-
-html()
-{
-    echo "<html>" > $1
-    echo "\t<head>" >> $1
-    echo "\t</head>" >> $1
-    echo "\t<body>" >> $1
-    echo "\t</body>" >> $1
-    echo "</html>" >> $1
-}
-
-sp()
-{
-    echo "<?php" >> $1
-    echo "" >> $1
-    echo "?>" >> $1
-}
-
-sc()
-{
-    if [ "$1" = "sh" ]
-    then
-        echo "#!/bin/sh" >> $2
-    elif [ "$1" = "php" ]
-    then
-        echo "#!/usr/bin/php" >> $2
-        sp $2
-    fi
-}

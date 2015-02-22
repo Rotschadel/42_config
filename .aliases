@@ -7,7 +7,6 @@ alias cds='cd ~/scripts/'
 alias cdt='cd ~/test/'
 alias cdx='cd ~/Rendu/correction'
 alias goinfre='cd /nfs/sgoinfre/goinfre/'
-alias a="~/Rendu/perso/cpp/piscine/rush01-git"
 
 # Definition des alias de git
 alias ga="git add"
